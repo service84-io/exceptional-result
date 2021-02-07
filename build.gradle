@@ -106,10 +106,17 @@ configurations.all {
 }
 
 dependencies {
-  implementation 'org.springframework.boot:spring-boot-starter-web:2.3.1.RELEASE'
+  compileOnly 'org.springframework:spring-web:5.0.0.RELEASE'
 
   ////////////////////////////////
   //Test Dependencies/////////////
   ////////////////////////////////
-  testImplementation 'org.springframework.boot:spring-boot-starter-test:2.3.1.RELEASE'
+  // This fulfils the SpringWeb 5.x.x requirement
+  testImplementation 'org.springframework.boot:spring-boot-starter-web:2.4.2'
+
+  testImplementation 'org.springframework.boot:spring-boot-starter-test:2.4.2'
+}
+
+test {
+  useJUnitPlatform()
 }
