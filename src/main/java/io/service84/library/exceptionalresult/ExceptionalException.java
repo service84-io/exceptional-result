@@ -2,9 +2,8 @@ package io.service84.library.exceptionalresult;
 
 import org.springframework.http.HttpStatus;
 
+@SuppressWarnings("serial")
 public class ExceptionalException extends RuntimeException {
-  private static final long serialVersionUID = 1L;
-
   private Object response;
   private HttpStatus status;
 
