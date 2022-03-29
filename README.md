@@ -26,6 +26,7 @@ This library has a compile-time and run-time dependency on the following librari
 versions are (built-tested)
 
     org.springframework:spring-web:(5.0.0.RELEASE-5.3.3)
+    org.slf4j:slf4j-api:(1.3.0-1.7.30)
 
 ## Build
 This is a Java 11 project that builds best with Gradle 6.3
