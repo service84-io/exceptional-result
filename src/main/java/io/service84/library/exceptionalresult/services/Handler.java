@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-package io.service84.library.exceptionalresult;
+package io.service84.library.exceptionalresult.services;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +20,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import io.service84.library.exceptionalresult.models.ExceptionalException;
 
 @ControllerAdvice
 public class Handler {

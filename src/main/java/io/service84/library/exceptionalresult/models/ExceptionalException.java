@@ -12,22 +12,32 @@
  * limitations under the License.
  */
 
-package io.service84.library.exceptionalresult;
+package io.service84.library.exceptionalresult.models;
 
 import org.springframework.http.HttpStatus;
 
-/*
- * @deprecated Use ExceptionalException in the models package
- */
-@Deprecated(since = "1.3.0")
 @SuppressWarnings("serial")
-public class ExceptionalException
-    extends io.service84.library.exceptionalresult.models.ExceptionalException {
+public class ExceptionalException extends RuntimeException {
+  private Object response;
+  private HttpStatus status;
+
   public ExceptionalException(HttpStatus status, Object response) {
-    super(status, response);
+    super("Exceptional Result Exception");
+    this.status = status;
+    this.response = response;
   }
 
   public ExceptionalException(Integer code, Object response) {
-    super(code, response);
+    super("Exceptional Result Exception");
+    this.status = HttpStatus.valueOf(code);
+    this.response = response;
+  }
+
+  public Object getResponse() {
+    return response;
+  }
+
+  public HttpStatus getStatus() {
+    return status;
   }
 }

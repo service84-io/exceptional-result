@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-package io.service84.library.exceptionalresult;
+package io.service84.library.exceptionalresult.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -27,6 +27,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import io.service84.library.exceptionalresult.models.ExceptionalException;
+
 @ExtendWith(SpringExtension.class)
 public class HandlerTests {
   @TestConfiguration
@@ -40,6 +42,18 @@ public class HandlerTests {
 
   // Test Subject
   @Autowired private Handler handler;
+
+  @SuppressWarnings("deprecation")
+  @Test
+  public void translatesLegacyException() {
+    Object response = UUID.randomUUID();
+    io.service84.library.exceptionalresult.ExceptionalException exception =
+        new io.service84.library.exceptionalresult.ExceptionalException(
+            HttpStatus.OK.value(), response);
+    ResponseEntity<Object> responseWrapper = handler.handleExceptionalResultException(exception);
+    assertEquals(HttpStatus.OK, responseWrapper.getStatusCode());
+    assertEquals(response, responseWrapper.getBody());
+  }
 
   @Test
   public void translatesException() {

@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-package io.service84.library.exceptionalresult;
+package io.service84.library.exceptionalresult.models;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -22,7 +22,6 @@ import java.util.UUID;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 
-@SuppressWarnings("deprecation")
 public class ExceptionalExceptionTests {
   @Test
   public void integerConstructorBad() {
