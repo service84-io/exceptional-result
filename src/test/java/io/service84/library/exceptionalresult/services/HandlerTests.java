@@ -33,7 +33,6 @@ import io.service84.library.exceptionalresult.models.ExceptionalException;
 public class HandlerTests {
   @TestConfiguration
   public static class Configuration {
-
     @Bean
     public Handler getHandler() {
       return new Handler();
