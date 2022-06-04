@@ -25,12 +25,9 @@ plugins {
 apply plugin: 'eclipse'
 apply plugin: 'java'
 
+apply from: 'version.gradle'
+
 def s84Group = 'io.service84.library'
-def s84Name = 'Exceptional Result'
-def s84JarName = 'exceptionalresult'
-def s84Description = 'A library for facilitating multi return types for a endpoint in a Spring service'
-def s84GithubBase = 'https://github.com/service84-io/exceptional-result'
-def s84Version = '1.3.50-SNAPSHOT'
 def s84CoreName = s84JarName.split('-')[0]
 
 // configure all java components to be published
